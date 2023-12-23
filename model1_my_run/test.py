@@ -12,3 +12,14 @@ from torchsummary import summary
 
 import qiskit
 from qiskit.visualization import *
+
+use_cuda = torch.cuda.is_available()
+
+print('CUDA available:', use_cuda)
+
+if use_cuda:
+    device = torch.device('cuda')
+    print('Training on GPU...')
+else:
+    device = torch.device('cpu')
+    print('Training on CPU...')
